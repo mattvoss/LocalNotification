@@ -87,6 +87,7 @@ exports.mergeWithDefaults = function (options) {
     options.at   = this.getValueFor(options, 'at', 'firstAt', 'date');
     options.text = this.getValueFor(options, 'text', 'message');
     options.data = this.getValueFor(options, 'data', 'json');
+    options.color = this.getValueFor(options, 'color');
 
     if (defaults.hasOwnProperty('autoClear')) {
         options.autoClear = this.getValueFor(options, 'autoClear', 'autoCancel');
