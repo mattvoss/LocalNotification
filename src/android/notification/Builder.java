@@ -27,6 +27,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.graphics.Color;
 import android.support.v4.app.NotificationCompat;
 
 import org.json.JSONObject;
@@ -133,6 +134,7 @@ public class Builder {
                 .setAutoCancel(options.isAutoClear())
                 .setOngoing(options.isOngoing())
                 .setStyle(style)
+                .setColor(getColor(options.getColor))
                 .setLights(options.getLedColor(), 500, 500);
 
         if (sound != null) {
@@ -189,6 +191,17 @@ public class Builder {
                 context, requestCode, intent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         builder.setContentIntent(contentIntent);
+    }
+
+    private int getColor(String passedColor) {
+      // something like "#FFFF0000", or "red"
+      int theColor = 0; // default, transparent
+      if (passedColor != null) {
+        try {
+          theColor = Color.parseColor(passedColor);
+        } catch (IllegalArgumentException ignore) {}
+      }
+      return theColor;
     }
 
 }

@@ -294,6 +294,15 @@ public class Options {
     }
 
     /**
+     * Color for the local notification.
+     */
+    public String getColor () {
+        String color = options.optString("color", "");
+
+        return color;
+    }
+
+    /**
      * JSON object as string.
      */
     public String toString() {
