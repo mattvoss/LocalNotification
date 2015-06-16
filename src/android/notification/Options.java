@@ -297,9 +297,7 @@ public class Options {
      * Color for the local notification.
      */
     public String getColor () {
-        String color = options.optString("color", "");
-
-        return color;
+        return options.optString("color", "");
     }
 
     /**
